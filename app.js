@@ -67,6 +67,19 @@ app.delete("/students/:id",(req,res)=>{
     });
 });
 
+//middleware example
+const myMiddleware = (req, res, next) => {
+    console.log("Middleware executed ",new Date());
+    next();
+};
+
+app.use(myMiddleware);
+
+//route to check middleware
+app.get("/dummy", (req, res) => {
+    res.send("Middleware executed");
+});
+
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
