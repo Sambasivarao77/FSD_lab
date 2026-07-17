@@ -57,6 +57,15 @@ app.post("/students",(req,res)=>{
         data:students
     });
 });
+// delete student by id
+app.delete("/students/:id",(req,res)=>{
+    const id = req.params.id;
+    students = students.filter(student => student.id != id);
+    res.json({
+        message:"Student Deleted",
+        data:students
+    });
+});
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
