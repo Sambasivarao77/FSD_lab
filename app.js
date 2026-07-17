@@ -40,6 +40,16 @@ app.get("/student/:id/search", (req, res) => {
     res.send("Student ID = " + id + ", Searching for the Book   = " + bookname);
 });
 
+//HTTP methods
+let students = [
+    {id:1,name:"Ravi"},
+    {id:2,name:"Kiran"}
+];
+
+app.get("/students",(req,res)=>{
+    res.json(students);
+});
+
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
