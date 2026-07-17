@@ -33,6 +33,14 @@ app.get("/search", (req, res) => {
     res.send("Search Name = " + name + ", Branch = " + branch);
 });
 
+//example of url building with parameter and query parameter
+app.get("/student/:id/search", (req, res) => {
+    const id = req.params.id; 
+    const bookname = req.query.bookname;
+    res.send("Student ID = " + id + ", Searching for the Book   = " + bookname);
+});
+
+
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
