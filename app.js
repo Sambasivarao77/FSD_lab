@@ -25,6 +25,14 @@ app.get("/student/:id", (req, res) => {
     res.send("Student ID = " + id);
 });
 
+
+//search route with query parameter for name and branch
+app.get("/search", (req, res) => {
+    const name = req.query.name;
+    const branch = req.query.branch;
+    res.send("Search Name = " + name + ", Branch = " + branch);
+});
+
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
